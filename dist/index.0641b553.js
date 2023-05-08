@@ -576,15 +576,18 @@ async function fetchCountry() {
         const flag = response.data[0].flags.png;
         const capital = response.data[0].capital;
         const currencies = response.data[0].currencies;
-        const languages = response.data[0].languages.name;
+        const languages = response.data[0].languages;
         console.log(data);
-        countryArticle.innerHTML = `<img class="flag" src="${flag}" alt="flag of the country" width="50px"><h3>${country}</h3>
+        countryArticle.innerHTML = `<div class="title-wrapper"><img class="flag" src="${flag}" alt="flag of the country" width="40px"><h3 class="country-title" >${country}</h3></div>
         <p>${country} is situated in ${subArea}. It has a population of ${population} people.</p>
-        <p>The capital is ${capital} ${displayCurrencies(currencies)}</p>`;
+        <p>The capital is ${capital} ${displayCurrencies(currencies)}</p>
+        <p>${displayAllLanguages(languages)}</p>`;
+        countryArticle.style.display = "block";
     } catch (e) {
         console.error(e);
         countryArticle.innerHTML = ``;
         errorMessage.innerHTML = `<p>The country does not exist.</p>`;
+        countryArticle.style.display = "none";
     }
 }
 function displayCurrencies(currencies) {
@@ -596,22 +599,18 @@ submitForm.addEventListener("submit", (event)=>{
     errorMessage.innerHTML = ``;
     fetchCountry(inputField.value);
     inputField.value = "";
-}) // function displayLanguages(languages) {
- //     if (languages.length <= 1) {
- //         return `They speak ${languages[0].name}`
- //     } else if (languages.length === 2) {
- //         return `They speak ${languages[0]} and ${languages[1]}`
- //     } else if (languages.length >= 3) {
- //         let nextLanguage = `They speak ${languages[0].name}, `
- //
- //         for (let i = 1; i < languages.length; i++) {
- //             return nextLanguage + languages[i]
- //
- //         }
- //     }
- // }
- //
-;
+});
+function displayAllLanguages(languages) {
+    const numLanguages = languages.length;
+    if (numLanguages === 1) return `They speak ${languages[0].name}`;
+    else if (numLanguages === 2) return `They speak ${languages[0].name} and ${languages[1].name}.`;
+    else {
+        let languageString = "They speak ";
+        for(let i = 0; i < numLanguages - 1; i++)languageString += languages[i].name + ", ";
+        languageString += "and " + languages[numLanguages - 1].name;
+        return languageString;
+    }
+}
 
 },{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");

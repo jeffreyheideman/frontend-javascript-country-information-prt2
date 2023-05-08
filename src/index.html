@@ -7,14 +7,22 @@
     <script type="module" src="app.js" defer></script>
 </head>
 <body>
-<form id="submit-form">
-    <label for="input-field">
-        <input type="text" placeholder="For example: The netherlands or Peru" id="input-field">
-    </label>
-    <button id="search-button" type="submit">Search</button>
-</form>
-<article id="country-article"></article>
-<article id="error-message"></article>
+<header>
+    <h1>Lets search some countries!</h1>
+    <span class="img-outer-wrapper">
+        <img class="header-img" src="./assets/earth-day-vector-cartoon_52422-92.jpg" alt="an illustration of a globe">
+    </span>
+</header>
+<main>
+    <form id="submit-form">
+        <label for="input-field">
+            <input class="input-field" type="text" placeholder="For example: The netherlands or Peru" id="input-field">
+        </label>
+        <button class="search-btn" id="search-button" type="submit">Search</button>
+    </form>
+    <article class="country-article" id="country-article"></article>
+    <article id="error-message"></article>
+</main>
 
 </body>
 </html>

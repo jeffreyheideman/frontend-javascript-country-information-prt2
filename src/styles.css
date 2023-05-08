@@ -1,5 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Roboto:wght@300;400;500;700&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1  {
+    margin: 3rem;
+    font-family: 'Kalam', cursive;
+    font-weight: 900;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*border: 3px solid red;*/
+}
+
+.header-img {
+    width: 500px;
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.country-article {
+    display: none;
+    max-width: 800px;
+    height: auto;
+    background-color: #e6e6e6;
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.title-wrapper {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.country-title {
+    padding-left: 1.5rem;
+}
+
+.input-field {
+    margin: 2rem 0;
+    padding: 0.5rem;
+    width: 450px;
+    height: 35px;
+    border-radius: 15px 0 0 15px;
+    border: 2px solid lightgray;
+}
+
+.search-btn {
+    background-color: rebeccapurple;
+    color: white;
+    height: 35px;
+    padding: 0 1rem;
+    border-radius: 0 15px 15px 0;
+    border: rebeccapurple;
+    margin-left: -5px;
+
+}
+
+.search-btn:hover {
+    background-color: mediumpurple;
+    cursor: pointer;
 }
